@@ -6,8 +6,8 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import { Fragment } from "react";
 import useSWRInfinite from 'swr/infinite'
+import relativeTime from "dayjs/plugin/relativeTime";
 
-var relativeTime: any = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 
 function Blog({setting, blog}: any)
