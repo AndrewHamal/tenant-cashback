@@ -15,6 +15,7 @@ import SectionList from "@/components/SectionList";
 import SectionFeatured from "@/components/SectionFeatured";
 import SectionTable from "@/components/SectionTable";
 import OnlineForm from "@/components/OnlineForm";
+import Link from "next/link";
 
 export default function Home({ homepage }: any) {
   return (
@@ -47,14 +48,16 @@ export default function Home({ homepage }: any) {
             </p>
 
             <div className="flex gap-2 sm:gap-4">
-              <button className="btn-primary font-[600] flex gap-[5px] items-center">
-                <Image
-                  width={18}
-                  alt=""
-                  src={require("@/assets/icons/phone.svg")}
-                />
-                Claim Your Deposit Today
-              </button>
+              <Link target="_blank" href={'https://mydepositclaims.co.uk'}>
+                <button className="btn-primary font-[600] flex gap-[5px] items-center">
+                  <Image
+                    width={18}
+                    alt=""
+                    src={require("@/assets/icons/phone.svg")}
+                  />
+                  Claim Your Deposit Today
+                </button>
+              </Link>
 
               <button className="btn-primary-outlined gap-[5px] flex items-center">
                 See If You’re Eligible

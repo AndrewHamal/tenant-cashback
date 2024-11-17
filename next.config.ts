@@ -41,7 +41,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'mtkailashimalayakitchen',
+        hostname: 'mtkailashimalayakitchen.de',
         port: '',
         search: '',
       },
