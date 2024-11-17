@@ -22,8 +22,8 @@ export default function Home({ homepage }: any) {
     <>
       <Navbar data={homepage?.setting} />
 
-      <section className="xl:container m-auto px-3 md:h-[616px] py-4 sm:py-0">
-        <div className="md:flex items-center h-[100%]">
+      <section className="xl:container m-auto px-3 py-4 sm:py-0">
+        <div className="md:flex items-center h-[100%] md:gap-7">
           <div className="md:w-[55%]">
             <h1 className="leading-[32px] uppercase sm:leading-[70px] text-muted font-[700] sm:text-5xl">
               <span
@@ -70,7 +70,7 @@ export default function Home({ homepage }: any) {
             </div>
           </div>
 
-          <div className="mt-9 md:mt-0 ml-auto flex justify-end hero-img">
+          <div className="md:w-[45%] mt-9 md:mt-0 ml-auto flex justify-end hero-img py-8">
             <Image
               alt=""
               width={0}

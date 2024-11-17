@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function ClaimBox()
 {
     return <section className="bg-[#8C51FF]">
-    <div className="lg:container px-3 m-auto sm:flex gap-5 py-[30px] sm:py-[67px]">
+    <div className="xl:container px-3 m-auto sm:flex gap-5 py-[30px] sm:py-[67px]">
       <h2 className="text-xl sm:text-4xl md:text-5xl font-[600] text-center sm:text-left text-white">
         Ready to Claim What’s Yours?
       </h2>

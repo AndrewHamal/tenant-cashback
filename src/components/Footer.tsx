@@ -10,7 +10,7 @@ TENANT’S Cashback has been the industry's standard dummy text ever since the 1
 export default function Footer({data}: any)
 {
     return (<div className="bg-[#EDF1F5] footer">
-        <div className="lg:container px-3 m-auto pt-11">
+        <div className="xl:container px-3 m-auto pt-11">
             <div className="grid sm:grid-cols-5 grid-cols-2 gap-5 sm:gap-10">
                 <div className="sm:col-span-3 col-span-3 sm:w-[80%]">
                     <Link href={'/'}>
