@@ -302,6 +302,11 @@ iframe {
   background-clip: text;
 }
 
+button:disabled,
+button[disabled] {
+  opacity: 0.7;
+}
+
 /* sixth section  */
 .sixth .content h2{
   font-size: 26px;
@@ -320,6 +325,12 @@ iframe {
 
 .footer li {
   padding: 4px 0;
+}
+
+.form-control {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #D0D5DD ;
+  border-radius: 8px;
 }
 
 /* responsive  */

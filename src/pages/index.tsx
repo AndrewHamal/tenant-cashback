@@ -14,6 +14,7 @@ import { fileURL } from "@/lib/utils";
 import SectionList from "@/components/SectionList";
 import SectionFeatured from "@/components/SectionFeatured";
 import SectionTable from "@/components/SectionTable";
+import OnlineForm from "@/components/OnlineForm";
 
 export default function Home({ homepage }: any) {
   return (
@@ -80,6 +81,7 @@ export default function Home({ homepage }: any) {
       </section>
 
       <SectionList data={homepage?.second}/>
+      <OnlineForm data={homepage?.unprotected} setting={homepage?.setting}/>
       <SectionTable data={homepage?.third}/>
 
       <section className="xl:container m-auto px-3 py-20 why-choose">
@@ -128,7 +130,11 @@ export default function Home({ homepage }: any) {
 
             <div
               className="text-white content"
-              dangerouslySetInnerHTML={{ __html: homepage?.sixth?.content }}
+              dangerouslySetInnerHTML={{ __html: homepage?.sixth?.content?.replaceAll(/<img\s+([^>]*?)src="([^"]*?)"/g, (match, attributes, oldSrc) => {
+                // Construct the new src by appending text
+                const newSrc = `${fileURL}${oldSrc?.replace('/storage', '')}`;
+                return `<img ${attributes}src="${newSrc}"`;
+              })}}
             />
           </div>
         </div>

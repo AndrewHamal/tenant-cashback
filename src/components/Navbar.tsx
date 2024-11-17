@@ -70,9 +70,11 @@ export default function Navbar({ data }: any) {
                 </button>
             </Link>
 
-            <button className="btn-primary font-[600]">
-                <div className="px-5">Can I Claim?</div>
-            </button>
+            <Link target="_blank" href={'https://mydepositclaims.co.uk'}>
+              <button className="btn-primary font-[600]">
+                  <div className="px-5">Can I Claim?</div>
+              </button>
+            </Link>
         </div>
         </div>
     </div>

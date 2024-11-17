@@ -2,6 +2,7 @@ import ClaimBox from "@/components/ClaimBox";
 import ContactBox from "@/components/ContactBox";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import OnlineForm from "@/components/OnlineForm";
 import SectionFeatured from "@/components/SectionFeatured";
 import SectionList from "@/components/SectionList";
 import SectionTable from "@/components/SectionTable";
@@ -92,56 +93,10 @@ export default function UnprotectedDeposits({data}: any){
             </div>
         </section>
 
-        <section className="bg-[#8C51FF]/[0.2] py-10 sm:py-20">
-            <div className="xl:container px-3 m-auto">
-                <div className="grid sm:grid-cols-2">
-                    <div className="items-center text-center">
-                        <div className="flex">
-                            <img className="w-[120px] h-[120px] m-auto" src={fileURL+data?.unprotected?.contact_info?.find((res: any) => res.type === 'person')?.data?.image} alt="" />
-                        </div>
-                        <h4 className="font-[600] text-[17px] mt-3 text-muted">{data?.unprotected?.contact_info?.find((res: any) => res.type === 'person')?.data?.name}</h4>
-                        <h3 className="text-[20px] text-muted">{data?.unprotected?.contact_info?.find((res: any) => res.type === 'person')?.data?.designation}</h3>
-
-                        <h3 className="text-[20px] text-primary py-5 font-[500]" dangerouslySetInnerHTML={{__html: data?.unprotected?.contact_info?.filter((res: any) => res.type === 'text')?.[0]?.data?.content}}/>
-
-                        <div className="bg-white rounded-[8px] px-5 py-6">
-                            <div className="text-[20px] text-muted font-[500]" dangerouslySetInnerHTML={{__html: data?.unprotected?.contact_info?.filter((res: any) => res.type === 'text')?.[1]?.data?.content}}/>
-                            
-                            <div className="flex gap-5 justify-center my-4">
-                                <div className="gap-2 flex">
-                                    <input type="radio"/>
-                                    <label htmlFor="">Yes</label>
-                                </div>
-
-                                <div className="gap-2 flex">
-                                    <input type="radio"/>
-                                    <label htmlFor="">No</label>
-                                </div>
-                            </div>
-
-                            <h3 className="text-[14px] text-left text-muted font-[300]" dangerouslySetInnerHTML={{__html: data?.unprotected?.contact_info?.filter((res: any) => res.type === 'text')?.[2]?.data?.content}}/>
-                            
-                            <div className="flex gap-2 items-center justify-center pt-5">
-                                <Image width={18} src={require('@/assets/icons/lock.svg')} alt="" />
-                                <p className="font-[300]"> 100% Secure SSL Encryption </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="mt-10 sm:my-auto ml-auto">
-                        <div className="relative">
-                            <div className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center">
-                                <div className="text-center">
-                                    <h3 className="text-[20px] sm:text-[24px] font-[600] text-white">Talk to Us:</h3>
-                                    <h3 className="text-[24px] sm:text-[32px] font-[600] text-white">{data?.setting?.phone}</h3>
-                                </div>
-                            </div>
-                            <Image src={require('@/assets/contact-bg.svg')} alt="" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <OnlineForm
+            data={data?.unprotected}
+            setting={data?.setting}
+        />
 
         <section className="xl:container px-3 m-auto animate-text">
             <div className="py-5 sm:py-11">
