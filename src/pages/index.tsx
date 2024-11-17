@@ -130,7 +130,7 @@ export default function Home({ homepage }: any) {
 
             <div
               className="text-white content"
-              dangerouslySetInnerHTML={{ __html: homepage?.sixth?.content?.replaceAll(/<img\s+([^>]*?)src="([^"]*?)"/g, (match, attributes, oldSrc) => {
+              dangerouslySetInnerHTML={{ __html: homepage?.sixth?.content?.replaceAll(/<img\s+([^>]*?)src="([^"]*?)"/g, (match: any, attributes: any, oldSrc: string) => {
                 // Construct the new src by appending text
                 const newSrc = `${fileURL}${oldSrc?.replace('/storage', '')}`;
                 return `<img ${attributes}src="${newSrc}"`;
