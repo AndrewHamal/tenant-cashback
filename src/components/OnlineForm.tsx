@@ -292,13 +292,13 @@ export default function OnlineForm({ data, setting }: any) {
   };
 
   return (
-    <section className="bg-[#8C51FF]/[0.2] py-10 sm:py-20">
+    <section className="bg-[#8C51FF]/[0.2] pb-8 sm:py-20">
       <div className="xl:container px-3 m-auto">
-        <div className="grid sm:grid-cols-2">
+        <div className="grid sm:grid-cols-2 gap-10 sm:gap-0">
           <div className="mt-10 sm:my-auto mr-auto">
             <div className="relative">
               <div className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center">
-                <div className="text-center">
+                <div className="text-center max-w-[60%]">
                   <h3 className="text-[20px] sm:text-[24px] font-[600] text-white">
                     Talk to Us:
                   </h3>

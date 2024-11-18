@@ -70,7 +70,7 @@ export default function Home({ homepage }: any) {
             </div>
           </div>
 
-          <div className="md:w-[45%] mt-9 md:mt-0 ml-auto flex justify-end hero-img py-8">
+          <div className="md:w-[45%] mt-7 md:mt-0 ml-auto flex justify-end hero-img sm:py-8">
             <Image
               alt=""
               width={0}
