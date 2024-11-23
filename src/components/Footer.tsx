@@ -19,7 +19,7 @@ export default function Footer({data}: any)
                     <p className="text-[14px]" dangerouslySetInnerHTML={{__html: data?.footer_content}}/>
 
                     <div className="sm:pt-3">
-                        <h4 className="font-[600]  mb-3">Follow Us</h4>
+                        <h4 className="font-[600] text-muted mb-3">Follow Us</h4>
 
                         <div className="flex gap-3 items-center">
                             {
@@ -36,26 +36,26 @@ export default function Footer({data}: any)
                 </div>
 
                 <div> 
-                    <h4 className="font-[600] mb-2">Sitemap</h4>
-                    <li><Link href={'/'}>Home</Link></li>
-                    <li><Link href={'/faqs'}>FAQs</Link></li>
-                    <li><Link href={'/contact-us'}>Contact Us</Link></li>
+                    <h4 className="font-[600] mb-2 text-muted">Sitemap</h4>
+                    <li className="text-muted"><Link href={'/'}>Home</Link></li>
+                    <li className="text-muted"><Link href={'/faqs'}>FAQs</Link></li>
+                    <li className="text-muted"><Link href={'/contact-us'}>Contact Us</Link></li>
                 </div>
 
                 <div> 
-                    <h4 className="font-[600] mb-2">Policy</h4>
-                    <li><Link href={'/terms-and-services'}>Terms & Condition</Link></li>
-                    <li><Link href={'/privacy-policy'}>Privacy Policy</Link></li>
-                    <li><Link href={'/price-list'}>Fees & Pricing</Link></li>
+                    <h4 className="font-[600] mb-2 text-muted">Policy</h4>
+                    <li className="text-muted"><Link href={'/terms-and-services'}>Terms & Condition</Link></li>
+                    <li className="text-muted"><Link href={'/privacy-policy'}>Privacy Policy</Link></li>
+                    <li className="text-muted"><Link href={'/price-list'}>Fees & Pricing</Link></li>
                 </div>
             </div>
 
             <div className="border-t-[1px] flex flex-wrap pt-4 mt-4 pb-8">
-                <p className="text-[14px]">© {(new Date().getFullYear())} Tenant’s Cashback - Reclaim Your Unprotected Tenancy Deposit</p>
+                <p className="text-[14px] text-muted ">© {(new Date().getFullYear())} Tenant’s Cashback - Reclaim Your Unprotected Tenancy Deposit</p>
 
                 <div className="sm:ml-auto mt-2 sm:mt-0 flex gap-4">
-                    <Link href={''} className="text-[14px]">Call our team</Link>
-                    <Link href={''} className="text-[14px]">Check online</Link>
+                    <Link href={''} className="text-[14px] text-muted">Call our team</Link>
+                    <Link href={''} className="text-[14px] text-muted">Check online</Link>
                 </div>
             </div>
         </div>

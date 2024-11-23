@@ -1,12 +1,6 @@
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@radix-ui/react-accordion";
 import ContactBox from "@/components/ContactBox";
 import ClaimBox from "@/components/ClaimBox";
 import { Fragment } from "react";
@@ -48,7 +42,7 @@ export default function Home({ homepage }: any) {
             </p>
 
             <div className="flex gap-2 sm:gap-4">
-              <Link target="_blank" href={'https://mydepositclaims.co.uk'}>
+              <Link target="_blank" href={`tel:${homepage?.setting?.phone}`}>
                 <button className="btn-primary font-[600] flex gap-[5px] items-center">
                   <Image
                     width={18}
@@ -58,15 +52,17 @@ export default function Home({ homepage }: any) {
                   Claim Your Deposit Today
                 </button>
               </Link>
-
-              <button className="btn-primary-outlined gap-[5px] flex items-center">
-                See If You’re Eligible
-                <Image
-                  width={20}
-                  alt=""
-                  src={require("@/assets/icons/tick.svg")}
-                />
-              </button>
+              
+              <Link href={'#form-claim'}>
+                <button className="btn-primary-outlined gap-[5px] flex items-center">
+                  See If You’re Eligible
+                  <Image
+                    width={20}
+                    alt=""
+                    src={require("@/assets/icons/tick.svg")}
+                  />
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -87,7 +83,7 @@ export default function Home({ homepage }: any) {
       <OnlineForm data={homepage?.unprotected} setting={homepage?.setting}/>
       <SectionTable data={homepage?.third}/>
 
-      <section className="xl:container m-auto px-3 py-20 why-choose">
+      <section className="xl:container m-auto px-3 pt-20 pb-11 why-choose">
         <h2
           className="text-muted px-11 sm:px-0 text-4xl font-[700] text-center"
           dangerouslySetInnerHTML={{ __html: homepage?.forth?.title }}
@@ -112,16 +108,18 @@ export default function Home({ homepage }: any) {
         </div>
       </section>
 
-  
+      <div className="mb-11">
+        <ClaimBox/>
+      </div>
+            
       <SectionFeatured
         data={homepage?.featured}
+        setting={homepage?.setting}
       />
-
-      <ClaimBox />
 
       <section className="bg-[#333333] sixth">
         <div className="xl:container m-auto px-3 py-[55px]">
-          <div className="bg-primary py-8 sm:py-11 px-6 sm:px-[80px] rounded-[16px]">
+          <div className="bg-primary py-8 sm:py-11 px-6 ms:px-[20px] md:px-[50px] xl:px-[80px] rounded-[16px]">
             <h2
               className="font-[700] text-4xl text-white"
               dangerouslySetInnerHTML={{ __html: homepage?.sixth?.title }}
@@ -143,7 +141,7 @@ export default function Home({ homepage }: any) {
         </div>
       </section>
 
-      <section className="xl:container m-auto px-3 py-11">
+      <section className="xl:container m-auto px-3 pt-11" id="recovery">
         <div className="py-11">
           <h2
             className="text-4xl font-[700] text-muted text-center"
@@ -154,7 +152,7 @@ export default function Home({ homepage }: any) {
             dangerouslySetInnerHTML={{ __html: homepage?.seventh?.sub_title }}
           />
 
-          {homepage?.seventh?.items?.map((res: any, key: number) => (
+          {homepage?.seventh?.items?.slice(0, 3)?.map((res: any, key: number) => (
             <Fragment key={key}>
               <div className="pt-5 sm:pt-20 pb-5 grid sm:grid-cols-2 gap-11">
                 {key % 2 != 0 && (
@@ -174,26 +172,28 @@ export default function Home({ homepage }: any) {
                   />
 
                   <div className="pt-2">
-                    <button className="btn-primary">
-                      <div className="px-1 flex items-center gap-[5px]">
-                        {key < 2 && (
-                          <img
-                            width={18}
-                            alt=""
-                            src={fileURL + res?.button_icon}
-                          />
-                        )}
-                        {res?.button_title}
-                        {key == 2 && (
-                          <img
-                            width={9}
-                            className="ml-2"
-                            alt=""
-                            src={fileURL + res?.button_icon}
-                          />
-                        )}
-                      </div>
-                    </button>
+                    <Link href={res.button_link}>
+                      <button className="btn-primary">
+                        <div className="px-1 flex items-center gap-[5px]">
+                          {key < 2 && (
+                            <img
+                              width={18}
+                              alt=""
+                              src={fileURL + res?.button_icon}
+                            />
+                          )}
+                          {res?.button_title}
+                          {key == 2 && (
+                            <img
+                              width={9}
+                              className="ml-2"
+                              alt=""
+                              src={fileURL + res?.button_icon}
+                            />
+                          )}
+                        </div>
+                      </button>
+                    </Link>
                   </div>
                 </div>
 
@@ -216,7 +216,7 @@ export default function Home({ homepage }: any) {
         </div>
       </section>
 
-      <section className="xl:container m-auto px-3 faqs">
+      {/* <section className="xl:container m-auto px-3 faqs">
         <h2
           className="text-5xl font-[600] leading-[3.4rem] text-muted text-center mb-11"
           dangerouslySetInnerHTML={{ __html: homepage?.faq?.title }}
@@ -231,7 +231,7 @@ export default function Home({ homepage }: any) {
           {homepage?.faq?.items?.map((res: any, key: number) => (
             <Fragment key={key}>
               <AccordionItem value={`item-${key}`}>
-                <AccordionTrigger className="flex items-center gap-3 w-[100%]">
+                <AccordionTrigger className="flex items-center gap-3 w-[100%] text-muted">
                   <div className="bg-[#F7F8F8] text-muted border-[#D7D9E0] border-[1px] min-w-[39px] h-[39px] rounded-lg flex items-center justify-center font-[400] text-[16px]">
                     {key + 1}
                   </div>
@@ -255,10 +255,10 @@ export default function Home({ homepage }: any) {
             </Fragment>
           ))}
         </Accordion>
-      </section>
+      </section> */}
 
-      <section className="xl:container m-auto px-3 mt-8 mb-11">
-        <ContactBox />
+      <section className="xl:container m-auto px-3 mb-11">
+        <ContactBox phone={homepage?.setting?.phone}/>
       </section>
 
       <ClaimBox />

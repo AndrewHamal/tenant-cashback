@@ -72,31 +72,40 @@ export default function UnprotectedDeposits({data}: any){
     return (<>
         <Navbar data={data?.setting}/>
 
-        <section className="xl:container px-3 m-auto">
-            <div className="py-7 sm:py-11">
-                <h1 className="text-muted sm:px-0 text-4xl font-[700] text-center sm:text-left" dangerouslySetInnerHTML={{
-                    __html: data?.unprotected?.title,
-                    }}/>
+        <div className="pb-11">
+            <section className="xl:container px-3 m-auto">
+                <div className="">
+                    <div className="py-7 sm:py-11">
+                        <h1 className="text-muted sm:px-0 text-4xl font-[700] text-center sm:text-left" dangerouslySetInnerHTML={{
+                            __html: data?.unprotected?.title,
+                            }}/>
 
-                <p className="text-center sm:text-left text-[14px] sm:text-[18px] text-muted py-4 sm:py-9">
-                    <span dangerouslySetInnerHTML={{ __html: data?.unprotected?.sub_title }}
-                    ></span>
-                </p>
+                        <p className="text-center sm:text-left text-[14px] sm:text-[18px] text-muted pt-4 sm:pt-9">
+                            <span dangerouslySetInnerHTML={{ __html: data?.unprotected?.sub_title }}
+                            ></span>
+                        </p>
 
-                <img className="w-[100vw]" src={fileURL+data?.unprotected?.cover_image}/>
+                        {/* <img className="w-[100vw]" src={fileURL+data?.unprotected?.cover_image}/>
 
-                <p className="text-[14px] sm:text-[18px] text-muted py-9">
-                    <span
-                        dangerouslySetInnerHTML={{ __html: data?.unprotected?.cover_message }}
-                    ></span>
-                </p>
-            </div>
-        </section>
+                        <p className="text-[14px] sm:text-[18px] text-muted py-9">
+                            <span
+                                dangerouslySetInnerHTML={{ __html: data?.unprotected?.cover_message }}
+                            ></span>
+                        </p> */}
+                    </div>
+                    <div className="overflow-hidden rounded-xl">
+                        <OnlineForm
+                            hideContact={false}
+                            data={data?.unprotected}
+                            setting={data?.setting}
+                        />
+                    </div>
+                </div>
+         
+            </section>
+        </div>
 
-        <OnlineForm
-            data={data?.unprotected}
-            setting={data?.setting}
-        />
+        <SectionTable data={data?.third}/>
 
         <section className="xl:container px-3 m-auto animate-text">
             <div className="py-5 sm:py-11">
@@ -154,14 +163,13 @@ export default function UnprotectedDeposits({data}: any){
             <ContactBox />
         </section>
 
-        <div className="sm:py-11">
+        <div className="sm:pb-11">
             <SectionFeatured
                 hideContact={false}
                 data={data?.featured}
             />
         </div>
 
-        <SectionTable data={data?.third}/>
         <ClaimBox/>
     
         <Footer data={data?.setting}/>

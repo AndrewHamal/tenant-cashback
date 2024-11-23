@@ -30,7 +30,7 @@ export default function Faq({data}: any)
                 {data?.faq?.items?.map((res: any, key: number) => (
                     <Fragment key={key}>
                     <AccordionItem value={`item-${key}`}>
-                        <AccordionTrigger className="flex items-center gap-3 w-[100%]">
+                        <AccordionTrigger className="flex items-center gap-3 w-[100%] text-muted">
                         <div className="bg-[#F7F8F8] text-muted border-[#D7D9E0] border-[1px] min-w-[39px] h-[39px] rounded-lg flex items-center justify-center font-[400] text-[16px]">
                             {key + 1}
                         </div>

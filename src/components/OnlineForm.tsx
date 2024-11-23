@@ -2,9 +2,10 @@ import { sendEmail } from "@/api";
 import { useToast } from "@/hooks/use-toast";
 import { fileURL } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
-export default function OnlineForm({ data, setting }: any) {
+export default function OnlineForm({ data, setting, hideContact=true }: any) {
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
   const [answer, setAnswer] = useState("");
@@ -22,7 +23,7 @@ export default function OnlineForm({ data, setting }: any) {
                 type="radio"
                 id="yes_101"
             />
-            <label htmlFor="yes_101">Yes</label>
+            <label className="text-muted" htmlFor="yes_101">Yes</label>
             </div>
 
             <div className="gap-2 flex">
@@ -33,14 +34,14 @@ export default function OnlineForm({ data, setting }: any) {
                 value={"no"}
                 name="answer_first_1"
             />
-            <label htmlFor="no">No</label>
+            <label htmlFor="no" className="text-muted">No</label>
             </div>
         </div>
 
         <h3 className="text-[20px] text-center text-muted font-[500]">
             Was your deposit placed into a government scheme?
         </h3>
-        <p className="">Either the TDS, the DPS or My Deposits</p>
+        <p className="text-muted">Either the TDS, the DPS or My Deposits</p>
         <div className="flex items-center flex-wrap gap-5 justify-center my-4">
             <div className="gap-2 justify-center flex w-[100%]">
                 <input
@@ -51,7 +52,7 @@ export default function OnlineForm({ data, setting }: any) {
                     id="yes-2"
                     name="answer_second"
                 />
-                <label htmlFor="yes-2">Yes, I'm certain it was</label>
+                <label className="text-muted" htmlFor="yes-2">Yes, I'm certain it was</label>
             </div>
 
             <div className="gap-2 justify-center flex w-[100%]">
@@ -62,7 +63,7 @@ export default function OnlineForm({ data, setting }: any) {
                     value={"no-2"}
                     name="answer_second"
                 />
-                <label htmlFor="no-7">Yes, but more than 30 days after I paid it</label>
+                <label className="text-muted" htmlFor="no-7">Yes, but more than 30 days after I paid it</label>
             </div>
 
             <div className="gap-2 flex">
@@ -74,7 +75,7 @@ export default function OnlineForm({ data, setting }: any) {
                     value={"no-2"}
                     name="answer_second"
                 />
-                <label htmlFor="no-8">No I'm certain it wasn't</label>
+                <label className="text-muted" htmlFor="no-8">No I'm certain it wasn't</label>
             </div>
 
             <div className="gap-2 flex">
@@ -86,11 +87,11 @@ export default function OnlineForm({ data, setting }: any) {
                     value={"no-2"}
                     name="answer_second"
                 />
-                <label htmlFor="no-9">I'm not sure</label>
+                <label className="text-muted" htmlFor="no-9">I'm not sure</label>
             </div>
         </div>
         
-        <p onClick={() => setAnswer('')} className="font-[500] text-[14px] cursor-pointer">Need to start again?</p>
+        <p onClick={() => setAnswer('')} className="font-[500] text-[14px] cursor-pointer text-muted">Need to start again?</p>
     </div>
   }
 
@@ -116,7 +117,7 @@ export default function OnlineForm({ data, setting }: any) {
                     value={"no-2"}
                     name="answer_second_1"
                 />
-                <label htmlFor="no-17">Yes, but more than 30 days after I paid it</label>
+                <label className="text-muted" htmlFor="no-17">Yes, but more than 30 days after I paid it</label>
             </div>
 
             <div className="gap-2 flex">
@@ -128,7 +129,7 @@ export default function OnlineForm({ data, setting }: any) {
                     value={"no-2"}
                     name="answer_second_1"
                 />
-                <label htmlFor="no-18">Yes</label>
+                <label className="text-muted" htmlFor="no-18">Yes</label>
             </div>
 
             <div className="gap-2 flex">
@@ -140,7 +141,7 @@ export default function OnlineForm({ data, setting }: any) {
                     value={"no-2"}
                     name="answer_second_1"
                 />
-                <label htmlFor="no-19">No</label>
+                <label className="text-muted" htmlFor="no-19">No</label>
             </div>
 
             <div className="gap-2 flex">
@@ -152,11 +153,11 @@ export default function OnlineForm({ data, setting }: any) {
                     value={"no-2"}
                     name="answer_second_1"
                 />
-                <label htmlFor="no-10">I'm not sure</label>
+                <label className="text-muted" htmlFor="no-10">I'm not sure</label>
             </div>
         </div>
         
-        <p onClick={() => setAnswer('')} className="font-[500] text-[14px] cursor-pointer">Need to start again?</p>
+        <p onClick={() => setAnswer('')} className="font-[500] text-[14px] cursor-pointer text-muted">Need to start again?</p>
     </div>
   }
 
@@ -208,7 +209,7 @@ export default function OnlineForm({ data, setting }: any) {
             </button>
 
          
-            <p onClick={() => setAnswer('')} className="font-[500] cursor-pointer text-[14px] mt-6">Need to start again?</p>
+            <p onClick={() => setAnswer('')} className="font-[500] cursor-pointer text-[14px] mt-6 text-muted">Need to start again?</p>
         </form>
     </div>
   )
@@ -224,9 +225,9 @@ export default function OnlineForm({ data, setting }: any) {
               ☹️ Sorry, you don’t have a claim. Would you like to check again?
             </h3>
 
-            <button onClick={() => setAnswer('')} className="bg-[#F1F1F1] rounded-lg px-2 py-1 my-4">Yes</button>
+            <button onClick={() => setAnswer('')} className="bg-[#F1F1F1] rounded-lg px-2 py-1 my-4 text-muted">Yes</button>
             
-            <p onClick={() => setAnswer('')} className="font-[500] cursor-pointer text-[14px]">Need to start again?</p>
+            <p onClick={() => setAnswer('')} className="font-[500] cursor-pointer text-[14px] text-muted">Need to start again?</p>
           </div>
         );
       case 'yes-2':
@@ -254,7 +255,7 @@ export default function OnlineForm({ data, setting }: any) {
                   id="yes"
                   name="answer_first"
                 />
-                <label htmlFor="yes">Yes</label>
+                <label className="text-muted" htmlFor="yes">Yes</label>
               </div>
 
               <div className="gap-2 flex">
@@ -265,12 +266,12 @@ export default function OnlineForm({ data, setting }: any) {
                   value={"no"}
                   name="answer_first"
                 />
-                <label htmlFor="no">No</label>
+                <label className="text-muted" htmlFor="no">No</label>
               </div>
             </div>
 
             <h3
-              className="text-[14px] text-left text-muted font-[400]"
+              className={`text-[14px] ${!hideContact ? 'text-center ' : 'text-left '}text-muted font-[400]`}
               dangerouslySetInnerHTML={{
                 __html: data?.contact_info?.filter(
                   (res: any) => res.type === "text"
@@ -284,7 +285,7 @@ export default function OnlineForm({ data, setting }: any) {
                 src={require("@/assets/icons/lock.svg")}
                 alt=""
               />
-              <p className="font-[300]"> 100% Secure SSL Encryption </p>
+              <p className="font-[300] text-muted"> 100% Secure SSL Encryption </p>
             </div>
           </div>
         );
@@ -292,24 +293,37 @@ export default function OnlineForm({ data, setting }: any) {
   };
 
   return (
-    <section className="bg-[#8C51FF]/[0.2] pb-8 sm:py-20">
+    <section className={`bg-[#8C51FF]/[0.2] ${!hideContact ? 'sm:px-11 py-10' : 'sm:py-20 pb-8'}`} id="form-claim">
       <div className="xl:container px-3 m-auto">
-        <div className="grid sm:grid-cols-2 gap-10 sm:gap-0">
-          <div className="mt-10 sm:my-auto mr-auto">
+        <div className={`${hideContact && 'grid sm:grid-cols-2 gap-10'} sm:gap-0`}>
+          {hideContact && <div className="mt-10 sm:my-auto mr-auto">
             <div className="relative">
               <div className="absolute top-0 bottom-0 left-0 right-0 flex items-center justify-center">
-                <div className="text-center max-w-[60%]">
-                  <h3 className="text-[20px] sm:text-[24px] font-[600] text-white">
-                    Talk to Us:
+                <div className="text-center max-w-[60%] px-4">
+                  <div>
+                  <h3 className="text-[12px] sm:text-[14px] md:text-[19px] text-left font-[600] text-white">
+                    ✔ Quick & Easy Process.<br />
+                    ✔ 100% Confidential.<br />
+                    ✔ Free Consultation.
                   </h3>
-                  <h3 className="text-[24px] sm:text-[32px] font-[600] text-white">
-                    {setting?.phone}
-                  </h3>
+                  </div>
+
+                  <Link href={`tel:${setting?.phone}`}>
+                  <button className="mt-5 hover:opacity-[0.7] btn-primary-outlined btn-white w-[100%] font-[600] flex justify-center items-center gap-[5px]">
+                      <Image width={18} alt="" src={require("@/assets/icons/phone.svg")} />
+                      {setting?.phone}
+                  </button>
+                  </Link>
+
+                  {/* <button className="btn-primary-outlined"> {setting?.phone}</button> */}
+                  {/* <h3 className="text-[24px] sm:text-[32px] font-[600] text-white">
+                   
+                  </h3> */}
                 </div>
               </div>
               <Image src={require("@/assets/contact-bg.svg")} alt="" />
             </div>
-          </div>
+          </div>}
 
           <div className="items-center text-center">
             <div className="flex">

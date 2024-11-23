@@ -5,9 +5,8 @@ import { fileURL } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
 export default function Navbar({ data }: any) {
-    const route = usePathname()
+  const route = usePathname()
 
-    console.log(route)
   const Menu = () => (
     <>
       <li>
@@ -16,14 +15,14 @@ export default function Navbar({ data }: any) {
         </Link>
       </li>
       <li>
-        <Link className={['/unprotected-deposits', '/unprotected-deposits/'].includes(route) ? "active" : ''} href={"/unprotected-deposits"}>Unprotected Deposits</Link>
+        <Link className={['/eligibility', '/eligibility/'].includes(route) ? "active" : ''} href={"/eligibility"}>Eligibility</Link>
       </li>
       <li>
         <Link className={['/faqs', '/faqs/'].includes(route) ? "active" : ''} href={"/faqs"}>FAQs</Link>
       </li>
-      <li>
+      {/* <li>
         <Link className={['/blogs', '/blogs/'].includes(route) ? "active" : ''} href={"/blogs"}>Blog</Link>
-      </li>
+      </li> */}
       <li>
         <Link className={['/contact-us', '/contact-us/'].includes(route) ? "active" : ''} href={"/contact-us"}>Contact Us</Link>
       </li>
@@ -32,7 +31,7 @@ export default function Navbar({ data }: any) {
 
   return (
     <div className="bg-white">
-        <div className="navbar flex w-[100%] items-center xl:container px-3 m-auto py-[15px]">
+        <div className="navbar flex w-[100%] items-center xl:container px-3 m-auto py-[18px]">
         <div className="logo">
             <Link href={"/"}>
             <img
@@ -45,8 +44,8 @@ export default function Navbar({ data }: any) {
 
         {/* desktop menu  */}
         <div className="mx-auto block hidden md:block">
-            <ul className="flex gap-6">
-            <Menu />
+            <ul className="flex gap-8">
+              <Menu />
             </ul>
         </div>
 
@@ -70,7 +69,7 @@ export default function Navbar({ data }: any) {
                 </button>
             </Link>
 
-            <Link target="_blank" href={'https://mydepositclaims.co.uk'}>
+            <Link href={'/eligibility'}>
               <button className="btn-primary font-[600]">
                   <div className="px-5">Can I Claim?</div>
               </button>

@@ -3,11 +3,11 @@ import { Fragment } from "react";
 import ContactBox from "./ContactBox";
 import { fileURL } from "@/lib/utils";
 
-export default function SectionFeatured({data, hideContact=true}: any)
+export default function SectionFeatured({setting, data, hideContact=true}: any)
 {
     return (<section>
         <h2
-          className="text-4xl text-center pb-4"
+          className="text-4xl text-center pb-4 text-muted"
           dangerouslySetInnerHTML={{ __html: data?.title }}
         />
         
@@ -37,7 +37,7 @@ export default function SectionFeatured({data, hideContact=true}: any)
             </div>
 
             {hideContact && <div className="mt-11 xl:container px-3 mx-auto"> 
-                <ContactBox />
+                <ContactBox phone={setting?.phone}/>
             </div>}
         </div>
       </section>)
