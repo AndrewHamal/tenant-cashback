@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'https://tenant-cashback.vercel.app/:3000/:path*',
+        destination: 'https://https://tenant-cashback-1wvr.vercel.app/:3000/:path*',
       },
     ]
   },
