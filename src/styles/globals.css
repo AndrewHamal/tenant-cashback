@@ -326,7 +326,13 @@ iframe {
 .filament-tiptap-grid-builder {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(2, 1fr)!important
+  grid-template-columns: repeat(1, 1fr)!important
+}
+
+@media (min-width: 640px) {
+  .filament-tiptap-grid-builder  {
+      grid-template-columns: repeat(2, minmax(0, 1fr))!important;
+  }
 }
 
 .filament-tiptap-grid-builder__column {
